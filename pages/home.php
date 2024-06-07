@@ -8,7 +8,7 @@
     <body>
         <div class="container">
             <h1> Effectuer un signalement </h1>
-            <form action="/submit-form" method="POST">
+            <form action="/pages/tt_form.php" method="POST">
             <label for="name">Nom:</label>
             <input type="text" id="name" name="name" required>
 
