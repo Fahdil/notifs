@@ -1,8 +1,9 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
-    padding: 20px;
+    width: 100%;
+    
     background-color: #f9f9f9;
+
 }
 .container {
     max-width: 600px;
@@ -12,6 +13,7 @@ body {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     width: 50%;
+    margin-top: 2em;
 }
 h1 {
     text-align: center;
@@ -42,4 +44,31 @@ input, textarea, select {
 }
 .button:hover {
     background-color: #0056b3;
+}
+
+header, footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+}
+header .nav a, footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+header .nav a:hover, footer a:hover {
+    color: #ff6f61;
+}
+footer {
+    margin-top: 30px;
+}
+
+
+/*about*/
+#about_div{
+    margin-top: 7em;
+    margin-bottom: 7em;
 }

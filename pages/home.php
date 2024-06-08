@@ -6,6 +6,16 @@
         <link rel="stylesheet" href="/css/home.css">
     </head>
     <body>
+
+    <header>
+          
+            <div class="nav">
+                <a href="/pages/home.php">Accueil</a>
+                <a href="/pages/about.php">À propos</a>
+                <a href="#footer">Contact</a>
+            </div>
+        </header>
+
         <div class="container">
             <h1> Effectuer un signalement </h1>
             <?php
@@ -61,7 +71,17 @@
      </div>   
 
     </body>
-    <footer>
-
-    </footer>
+  <footer id="footer">
+            <p>&copy; 2024 Notifs. Tous droits réservés.</p>
+            <p>
+                <a href="/">Accueil</a> |
+                <a href="/about">À propos</a> 
+               
+            </p>
+            <p>
+                <a href="https://facebook.com" target="_blank">Facebook</a> |
+                <a href="https://twitter.com" target="_blank">Twitter</a> |
+                <a href="https://instagram.com" target="_blank">Instagram</a>
+            </p>
+        </footer>
 </html>
