@@ -20,7 +20,7 @@ function registerComplaint() {
     $witnesses = htmlentities($_POST['witnesses']);
     $action = htmlentities($_POST['action']);
     $type = htmlentities($_POST['type']);
-
+    $nom_fichier=$_FILES["fillle"]["name"];
     // Database connection details
     require_once("param.inc.php");
     $mysqli = new mysqli($host, $name, $passwd, $dbname);
@@ -30,8 +30,8 @@ function registerComplaint() {
         die('Connection error (' . $mysqli->connect_errno . '): ' . $mysqli->connect_error);
     } else {
         // Prepare and bind
-        $stmt = $mysqli->prepare("INSERT INTO complaint (nom, harceleur, email, typee, phone, datee , descriptionn, witnesses, locationn, actionn) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssssssss", $nom, $badperson, $email, $type, $phone, $date, $description, $witnesses, $location, $action);
+        $stmt = $mysqli->prepare("INSERT INTO complaint (nom, harceleur, email, typee, phone, datee , descriptionn, witnesses, locationn, actionn,nom_fichier) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)");
+        $stmt->bind_param("sssssssssss", $nom, $badperson, $email, $type, $phone, $date, $description, $witnesses, $location, $action, $nom_fichier);
 
         // Execute the statement
         if ($stmt->execute()) {
@@ -169,23 +169,27 @@ function sendMail() {
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';               // Adresse IP ou DNS du serveur SMTP
         $mail->Port = 465;                            // Port TCP du serveur SMTP
-        $mail->SMTPAuth = true;                       // Utilisation de l'identification
+        $mail->SMTPAuth = true;                        // Utilisation de l'identification
         $mail->SMTPSecure = 'ssl';                    // Protocole de sécurisation des échanges avec le SMTP
-        $mail->Username = '';     // Adresse email à utiliser
-        $mail->Password = '';         // Mot de passe de l'adresse email à utiliser
+        $mail->Username = 'mmarc71779@gmail.com';     // Adresse email à utiliser
+        $mail->Password = 'umkonptumqlrzqvn';         // Mot de passe de l'adresse email à utiliser
 
         $mail->CharSet = 'UTF-8'; // Format d'encodage à utiliser pour les caractères
 
         $mail->From = $message3;                 // L'email à afficher pour l'envoi
         $mail->FromName = "$message4 $message2"; // L'alias à afficher pour l'envoi
 
-        $mail->addAddress(trim('')); // Adresse de destination
+        $mail->addAddress(trim('marc32994@gmail.com')); // Adresse de destination
 
         $mail->Subject = $subject;                // Le sujet du mail
         $mail->WordWrap = 50;                     // Nombre de caractères pour le retour à la ligne automatique
         $mail->AltBody = strip_tags($message);    // Texte brut pour les clients mail qui ne supportent pas HTML
         $mail->isHTML(true);                      // Préciser qu'il faut utiliser le format HTML
         $mail->Body = $message;                   // Contenu du mail en HTML
+
+
+        $mail->addAttachment($_FILES['fillle']['tmp_name'], $_FILES['fillle']['name']);
+        
 
         if ($mail->send()) {
             $_SESSION['message'] = " Votre plainte à été transmise avec succes";
