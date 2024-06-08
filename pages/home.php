@@ -48,6 +48,8 @@
             <option value="verbal">Verbal</option>
             <option value="physique">Physique</option>
             <option value="cyber">Cyber</option>
+            <option value="intimidation">intimidation</option>
+            <option value="menace">menace</option>
         </select><br>
 
         <label for="fillle">Joindre des Fichiers (si nécessaire):</label>
