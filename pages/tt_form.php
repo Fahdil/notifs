@@ -171,15 +171,15 @@ function sendMail() {
         $mail->Port = 465;                            // Port TCP du serveur SMTP
         $mail->SMTPAuth = true;                        // Utilisation de l'identification
         $mail->SMTPSecure = 'ssl';                    // Protocole de sécurisation des échanges avec le SMTP
-        $mail->Username = '';     // Adresse email à utiliser
-        $mail->Password = '';         // Mot de passe de l'adresse email à utiliser
+        $mail->Username = 'mmarc71779@gmail.com';     // Adresse email à utiliser
+        $mail->Password = 'umkonptumqlrzqvn';         // Mot de passe de l'adresse email à utiliser
 
         $mail->CharSet = 'UTF-8'; // Format d'encodage à utiliser pour les caractères
 
         $mail->From = $message3;                 // L'email à afficher pour l'envoi
         $mail->FromName = "$message4 $message2"; // L'alias à afficher pour l'envoi
 
-        $mail->addAddress(trim('')); // Adresse de destination
+        $mail->addAddress(trim('marc32994@gmail.com')); // Adresse de destination
 
         $mail->Subject = $subject;                // Le sujet du mail
         $mail->WordWrap = 50;                     // Nombre de caractères pour le retour à la ligne automatique

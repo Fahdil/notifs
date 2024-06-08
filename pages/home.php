@@ -55,7 +55,7 @@
         <label for="fillle">Joindre des Fichiers (si nécessaire):</label>
         <input type="file" id="fillle" name="fillle"><br>
 
-        <input type="submit" value="submit" name="submit">
+        <input type="submit" value="submit" name="submit" class="button">
     
         </form>
      </div>   
